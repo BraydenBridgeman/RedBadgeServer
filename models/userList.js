@@ -1,41 +1,35 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const User = db.define('user', {
+const UserList = db.define('userList', {
     idNumber: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        unique: true
+        unique: true,
     },
-    email: {
-        type: DataTypes.STRING(64),
-        allowNull: false,
-        unique: true
-    },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    password: {
+    listName: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    isAdmin: {
+    movieTitle: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    hasWatched: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false
+        allowNull: true,
     },
-    enum: {
+    toWatch: {
         type: DataTypes.BOOLEAN,
-        allowNull: true
+        allowNull: true,
     },
-    passReset: {
-        type: DataTypes.STRING,
-        allowNull: true
-    }
+    isPublic: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+    },
 });
 
-module.exports = User;
+module.exports = UserList;
