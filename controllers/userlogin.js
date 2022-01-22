@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 router.post("/login", async (req, res) => {
-    let { email, password } = req.body.user;
+    let { email, password, username } = req.body.user;
     let date = new Date();
     let current = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
 
@@ -12,6 +12,7 @@ router.post("/login", async (req, res) => {
         const loginUser = await LoginModel.findOne({
         where: {
             email: email,
+            username: username
         },
         });
 
