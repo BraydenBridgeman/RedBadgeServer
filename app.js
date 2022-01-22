@@ -12,6 +12,8 @@ app.use(Express.json());
 
 app.use('/createlogin', controllers.createLogin);
 app.use('/login', controllers.userLogin);
+app.use('/commentReview', controllers.addCommentReview);
+app.use('/userList', controllers.addList);
 
 dbConnection.authenticate()
     .then(()=> dbConnection.sync())

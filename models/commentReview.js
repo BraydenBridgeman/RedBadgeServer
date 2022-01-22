@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const CommentReview = db.define("commentReview", {
+const CommentReviewModel = db.define("commentReview", {
     idNumber: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -19,13 +19,13 @@ const CommentReview = db.define("commentReview", {
         allowNull: false,
     },
     reviewRating: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     reviewSection: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
 });
 
-module.exports = CommentReview;
+module.exports = CommentReviewModel;
