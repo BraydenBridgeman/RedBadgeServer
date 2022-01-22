@@ -8,9 +8,9 @@ router.post('/register', async (req, res) => {
        
     try {
     const User = await LoginModel.create({
-        email,
+        email: email,  
         password: bcrypt.hashSync(password, 10),
-        username,
+        username: username
     });
 
     let token = jwt.sign({idNumber: User.idNumber}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
