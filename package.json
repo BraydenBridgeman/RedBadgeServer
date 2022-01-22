@@ -18,5 +18,19 @@
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.14.0"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BraydenBridgeman/RedBadgeServer"
+  },
+  "keywords": [
+    "redbadge"
+  ],
+  "bugs": {
+    "url": "https://github.com/BraydenBridgeman/RedBadgeServer/issues"
+  },
+  "homepage": "https://github.com/BraydenBridgeman/RedBadgeServer#readme"
 }
