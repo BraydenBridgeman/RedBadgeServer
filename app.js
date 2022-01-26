@@ -10,6 +10,7 @@ app.use(require('./middleware/headers'));
 
 app.use(Express.json());
 
+app.use('/movies', controllers.addMovie);
 app.use('/createlogin', controllers.createLogin);
 app.use('/login', controllers.userLogin);
 app.use('/commentReview', controllers.addCommentReview);

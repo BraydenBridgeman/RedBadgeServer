@@ -8,7 +8,7 @@ module.exports = {
     addList: require('./addList'),
     // deleteList: require('./deleteList'),
     // updateListName: require('./updateListName'),
-    // addMovie: require('./addMovie'),
+    addMovie: require('./addMovie'),
     // deleteMovie: require('./deleteMovie'),
     // getMovies: require('./getMovies')
 };

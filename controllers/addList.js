@@ -16,13 +16,13 @@ router.post("/list", validateJWT, async (req, res) => {
         toWatch: toWatch,
         owner_id: idNumber
     }
-
     try {
-        const createList = await userListModel.create(addList);
-        res.status(200).json(createList);
+        const createList = await UserList.create(addList)
+        res.status(200).json(createList)
     } catch (err) {
-        res.status(500).json({ error: err, attempt: UserList });
+        res.status(500).json({ error: err })
     }
 });
+
 
 module.exports = router;

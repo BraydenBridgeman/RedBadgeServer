@@ -1,13 +1,13 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db");
 
-const Movies = db.define('movies', {
+const MoviesModel = db.define('movies', {
     movieName: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     yearReleased: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     genre: {
@@ -24,4 +24,4 @@ const Movies = db.define('movies', {
     },
 });
 
-module.exports = Movies;
+module.exports = MoviesModel;

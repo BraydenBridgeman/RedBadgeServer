@@ -12,7 +12,7 @@ const CommentReviewModel = db.define("commentReview", {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: false,
     },
     comment: {
         type: DataTypes.STRING,
