@@ -3,6 +3,8 @@ const { LoginModel } = require('../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+// POST USER LOGIN
+
 router.post("/login", async (req, res) => {
     let { email, password, username } = req.body.user;
     let date = new Date();

@@ -2,12 +2,14 @@ const Express = require("express");
 const router = Express.Router();
 const { UserListModel } = require("../models");
 
+// GET ALL USER LISTS
+
 router.get("/", async (req, res) => {
     try {
         const allMovieLists = await UserListModel.findAll({
             where: {
                 isPublic: true,
-                }
+            }
         });
         res.status(200).json(allMovieLists);
         console.log(allMovieLists);

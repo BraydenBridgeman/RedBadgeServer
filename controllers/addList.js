@@ -20,7 +20,7 @@ router.post("/list", validateJWT, async (req, res) => {
         const createList = await UserList.create(addList)
         res.status(200).json(createList)
     } catch (err) {
-        res.status(500).json({ error: err })
+        res.status(500).json({ error: err, attempt: addList })
     }
 });
 

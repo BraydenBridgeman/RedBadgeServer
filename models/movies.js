@@ -21,7 +21,7 @@ const MoviesModel = db.define('movies', {
     moviePoster: {
         type: DataTypes.STRING,
         allowNull: true,
-    },
+    }
 });
 
 module.exports = MoviesModel;

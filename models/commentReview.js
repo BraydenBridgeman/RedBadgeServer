@@ -7,7 +7,7 @@ const CommentReviewModel = db.define("commentReview", {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        unique: true,
+        unique: true
     },
     username: {
         type: DataTypes.STRING,
