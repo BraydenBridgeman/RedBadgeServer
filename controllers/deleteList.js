@@ -13,7 +13,7 @@ router.delete("/list/:userList_id", validateJWT, async (req, res) => {
                 idNumber: req.params.userList_id,
             }
         };
-
+        
         await UserList.destroy(query);
         res.status(200).json({ message: "This list was deleted." });
     } catch (err) {
