@@ -2,11 +2,12 @@ const router = require('express').Router();
 const { LoginModel } = require('../models');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const User = require('../models/login');
 
 // POST USER LOGIN
 
 router.post("/login", async (req, res) => {
-    let { email, password, username } = req.body.user;
+    let { email, password, username, isAdmin } = req.body.user;
     let date = new Date();
     let current = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
 
@@ -14,7 +15,8 @@ router.post("/login", async (req, res) => {
         const loginUser = await LoginModel.findOne({
         where: {
             email: email,
-            username: username
+            username: username,
+            isAdmin: isAdmin
         },
         });
 
@@ -24,7 +26,7 @@ router.post("/login", async (req, res) => {
 
             if (passwordComparison) {
 
-                let token = jwt.sign({idNumber: loginUser.idNumber}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
+                let token = jwt.sign({idNumber: loginUser.idNumber, isAdmin: User.isAdmin}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
 
                 res.status(200).json({
                     user: loginUser,

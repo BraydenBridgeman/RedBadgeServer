@@ -6,16 +6,17 @@ const bcrypt = require('bcryptjs');
 // POST CREATE LOGIN
 
 router.post('/register', async (req, res) => {
-    let { email, password, username } = req.body.user;
+    let { email, password, username, isAdmin } = req.body.user;
        
     try {
     const User = await LoginModel.create({
         email: email,  
         password: bcrypt.hashSync(password, 10),
-        username: username
+        username: username,
+        isAdmin: isAdmin
     });
 
-    let token = jwt.sign({idNumber: User.idNumber}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
+    let token = jwt.sign({idNumber: User.idNumber, isAdmin: User.isAdmin}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
 
     res.status(201).json({
         message: 'User successfully registered',
