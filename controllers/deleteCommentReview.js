@@ -6,7 +6,7 @@ const validateJWT = require('../middleware/validate-jwt');
 
 // DELETE COMMENT-REVIEW
 
-router.delete("/:commentReview_id", validateJWT, (req, res) => {
+router.delete("/:commentReview_id", validateJWT, async (req, res) => {
     try {
         const query = {
             where: {

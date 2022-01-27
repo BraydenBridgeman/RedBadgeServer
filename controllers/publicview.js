@@ -1,20 +1,19 @@
 const Express = require("express");
 const router = Express.Router();
-const { UserListModel } = require("../models");
+const { UserList } = require("../models");
 
 // GET ALL USER LISTS
 
 router.get("/", async (req, res) => {
     try {
-        const allMovieLists = await UserListModel.findAll({
+        const allMovieLists = await UserList.findAll({
             where: {
                 isPublic: true,
             }
         });
         res.status(200).json(allMovieLists);
-        console.log(allMovieLists);
     } catch (err) {
-        res.status(500).json({error:err});
+        res.status(500).json({error: err});
     }
 });
 

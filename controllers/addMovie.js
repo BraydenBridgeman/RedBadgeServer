@@ -7,13 +7,14 @@ const validateJWT = require('../middleware/validate-jwt');
 // POST Movie Information
 
 router.post("/movies", validateJWT, async (req, res) => {
-    const { movieName, yearReleased, genre, shortPlot, moviePoster } = req.body.movies;
+    const { movieName, yearReleased, genre, shortPlot, moviePoster, isPublic } = req.body.movies;
     const addMovie = {
         movieName: movieName,
         yearReleased: yearReleased,
         genre: genre,
         shortPlot: shortPlot,
-        moviePoster: moviePoster
+        moviePoster: moviePoster,
+        isPublic: isPublic
     }
     try {
         const createMovies = await MoviesModel.create(addMovie);

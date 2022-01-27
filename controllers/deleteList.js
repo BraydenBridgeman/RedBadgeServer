@@ -6,7 +6,7 @@ const validateJWT = require('../middleware/validate-jwt');
 
 // DELETE LIST
 
-router.delete("/list/:userList_id", validateJWT, (req, res) => {
+router.delete("/list/:userList_id", validateJWT, async (req, res) => {
     try {
         const query = {
             where: {

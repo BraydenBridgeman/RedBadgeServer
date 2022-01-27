@@ -21,6 +21,11 @@ const MoviesModel = db.define('movies', {
     moviePoster: {
         type: DataTypes.STRING,
         allowNull: true,
+    },
+    isPublic: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
     }
 });
 

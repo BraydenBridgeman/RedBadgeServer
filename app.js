@@ -12,6 +12,7 @@ app.use(Express.json());
 
 app.use('/publicview', controllers.publicview);
 app.use('/movies', controllers.addMovie);
+app.use('/allMovies', controllers.getMovies);
 app.use('/createlogin', controllers.createLogin);
 app.use('/login', controllers.userLogin);
 app.use('/commentReview', controllers.addCommentReview);
