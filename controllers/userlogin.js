@@ -7,7 +7,7 @@ const User = require('../models/login');
 // POST USER LOGIN
 
 router.post("/login", async (req, res) => {
-    let { email, password, username, isAdmin } = req.body.user;
+    let { email, password, username } = req.body.user;
     let date = new Date();
     let current = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
 
@@ -16,7 +16,6 @@ router.post("/login", async (req, res) => {
         where: {
             email: email,
             username: username,
-            isAdmin: isAdmin
         },
         });
 
@@ -30,18 +29,18 @@ router.post("/login", async (req, res) => {
 
                 res.status(200).json({
                     user: loginUser,
-                    message:"User successfully logged in!",
+                    message:"User Logged in!",
                     sessionToken: token
                 });
             } else {
                 res.status(401).json({
-                    message: "Incorrect username or password"
+                    message: "Incorrect Username or Password"
                 })
             }
             
         } else {
             res.status(401).json({
-                message: "Incorrect username or password"
+                message: "Incorrect Username or Password"
             });
         }
     } catch (error) {
