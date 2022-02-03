@@ -1,4 +1,15 @@
-This server is providing the backend of my React application.
-In building this, various controllers were needed. 
-In hindsight, I could have combined a lot of the controllers, but building out the controllers individually helped me in the short term.
-If I come back to this project, I'll probably start by combining most of the controllers together in order to make a smoother experience for the code.
+# Red Movie Server
+***
+This project is a full-stack web application that allows users to create and display movie lists.
+This is for all movie lovers and people who are interested in seeking out new films to watch.
+This repo contains the server side of the application, but you can access the client side [here](https://github.com/BraydenBridgeman/RedBadgeClient).
+***
+## Developer of Repo: Brayden Bridgeman
+* [LinkedIn](https://www.linkedin.com/in/brayden-bridgeman/)
+* [Personal Coding Site](https://braydenbridgeman.github.io/)
+* [Email](mailto:BraydenBridgeman@gmail.com)
+***
+## Client Repository
+* [Red Movie Client](https://github.com/BraydenBridgeman/RedBadgeClient)
+***
+## FAQ
