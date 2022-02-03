@@ -8,3 +8,8 @@ This repo contains the server side of the application, but you can access the cl
 * [LinkedIn](https://www.linkedin.com/in/brayden-bridgeman/)
 * [Personal Coding Site](https://braydenbridgeman.github.io/)
 * [Email](mailto:BraydenBridgeman@gmail.com)
+***
+## Client Repository
+* [Red Movie Client](https://github.com/BraydenBridgeman/RedBadgeClient)
+***
+## FAQ
