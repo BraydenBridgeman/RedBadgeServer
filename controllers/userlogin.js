@@ -7,7 +7,7 @@ const User = require('../models/login');
 // POST USER LOGIN
 
 router.post("/login", async (req, res) => {
-    let { email, password, username, isAdmin } = req.body.user;
+    let { email, password, username } = req.body.user;
     let date = new Date();
     let current = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
 
@@ -15,8 +15,7 @@ router.post("/login", async (req, res) => {
         const loginUser = await LoginModel.findOne({
         where: {
             email: email,
-            username: username,
-            isAdmin: isAdmin
+            username: username
         },
         });
 
