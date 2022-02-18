@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const Express = require("express");
+const cors = require('cors');
 const app = Express();
 
 const dbConnection = require('./db');
@@ -9,6 +10,7 @@ const controllers = require('./controllers');
 app.use(require('./middleware/headers'));
 
 app.use(Express.json());
+app.use(cors());
 
 app.use('/publicview', controllers.publicview);
 app.use('/movies', controllers.addMovie);
