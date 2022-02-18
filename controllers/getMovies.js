@@ -2,10 +2,11 @@ const Express = require('express');
 const router = Express.Router();
 
 const { MoviesModel } = require("../models");
+const validateJWT = require('../middleware/validate-jwt');
 
 // GET Movies
 
-router.get("/getMovies", async (req, res) => {
+router.get("/getMovies", validateJWT, async (req, res) => {
     try {
         const allMovies = await MoviesModel.findAll({
             where: {
