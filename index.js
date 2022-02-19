@@ -5,7 +5,7 @@ const app = express();
 const cors = require('cors');
 const dbConnection = require("./db");
 const controllers = require("./controllers");
-// const middleware = require('./middleware');
+const middleware = require('./middleware');
 
 app.use(express.json());
 app.use(require('./middleware/headers'));
@@ -15,7 +15,7 @@ app.use("/allMovies", controllers.getMovies);
 app.use("/movieList", controllers.movieList);
 app.use("/publicview", controllers.publicview);
 app.use("/userlogin", controllers.userLogin);
-// app.use(middleware.validateSession);
+app.use(middleware.validateSession);
 
 dbConnection
   .authenticate()
