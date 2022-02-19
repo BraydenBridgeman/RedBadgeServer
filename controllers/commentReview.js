@@ -1,5 +1,5 @@
-const Express = require('express');
-const router = Express.Router();
+const express = require('express');
+const router = express.Router();
 
 const { CommentReviewModel } = require("../models");
 const validateJWT = require('../middleware/validate-jwt');
