@@ -16,6 +16,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(Express.json());
+
 app.use('/publicview', controllers.publicview);
 app.use('/movies', controllers.addMovie);
 app.use('/allMovies', controllers.getMovies);
