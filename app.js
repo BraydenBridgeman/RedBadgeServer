@@ -4,6 +4,7 @@ const Express = require("express");
 const app = Express();
 const dbConnection = require("./db");
 const controllers = require("./controllers");
+const middleware = require('./middleware');
 
 app.use((req, res, next) => {
     res.header('access-control-allow-origin', '*');
@@ -15,11 +16,14 @@ app.use((req, res, next) => {
 
 app.use(Express.json());
 
+app.use(require('./middleware/headers'));
+app.use(cors());
 app.use("/commentReview", controllers.commentReview);
 app.use("/allMovies", controllers.getMovies);
 app.use("/movieList", controllers.movieList);
 app.use("/publicview", controllers.publicview);
 app.use("/userlogin", controllers.userLogin);
+app.use(middleware.validateSession);
 
 dbConnection
   .authenticate()
