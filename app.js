@@ -30,7 +30,7 @@ app.use('/userlogin', controllers.userLogin);
 dbConnection.authenticate()
     .then(()=> dbConnection.sync())
     .then(()=>{
-        app.listen(process.env.PORT, () => {
+        app.listen(process.env.PORT || 5000, () => {
             console.log(`[Server]: App is running on ${process.env.PORT}.`);
         });        
     })
