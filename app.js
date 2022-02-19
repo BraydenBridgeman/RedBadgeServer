@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const Express = require("express");
-const cors = require('cors');
 const app = Express();
 
 const dbConnection = require('./db');
@@ -9,8 +8,13 @@ const controllers = require('./controllers');
 
 app.use(require('./middleware/headers'));
 
-app.use(Express.json());
-app.use(cors());
+app.use((req, res, next) => {
+    res.header('access-control-allow-origin', '*');
+    res.header('access-control-allow-methods', 'GET, POST, PUT, DELETE');
+    res.header('access-control-allow-headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
+    next();
+});
 
 app.use('/publicview', controllers.publicview);
 app.use('/movies', controllers.addMovie);
