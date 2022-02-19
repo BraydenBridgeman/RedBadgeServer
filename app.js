@@ -1,17 +1,9 @@
 require("dotenv").config();
 
-const express = require("express");
-const app = express();
-
-const dbConnection = require('./db');
-const controllers = require('./controllers');
-const cors = require('cors')
-
-let whiteList = ['http://localhost:3000', 'http://localhost:5000', 'https://bwb-redbadgemovie-client.herokuapp.com/']
-app.use(cors({origin: whiteList, credentials: true}));
-
-app.use(require('./middleware/headers'));
-app.use(express.json());
+const Express = require("express");
+const app = Express();
+const dbConnection = require("./db");
+const controllers = require("./controllers");
 
 app.use((req, res, next) => {
     res.header('access-control-allow-origin', '*');
@@ -21,19 +13,22 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/commentReview', controllers.commentReview);
-app.use('/allMovies', controllers.getMovies);
-app.use('/movieList', controllers.movieList);
-app.use('/publicview', controllers.publicview);
-app.use('/userlogin', controllers.userLogin);
+app.use(Express.json());
 
-dbConnection.authenticate()
-    .then(()=> dbConnection.sync())
-    .then(()=>{
-        app.listen(process.env.PORT || 5000, () => {
-            console.log(`[Server]: App is running on ${process.env.PORT}.`);
-        });        
-    })
-    .catch((err) => {
-        console.log(`[Server]: Server crashed. Error = ${err}`);
+app.use("/commentReview", controllers.commentReview);
+app.use("/allMovies", controllers.getMovies);
+app.use("/movieList", controllers.movieList);
+app.use("/publicview", controllers.publicview);
+app.use("/userlogin", controllers.userLogin);
+
+dbConnection
+  .authenticate()
+  .then(() => dbConnection.sync())
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(`[Server]: App is running on ${process.env.PORT}.`);
     });
+  })
+  .catch((err) => {
+    console.log(`[Server]: Server crashed. Error = ${err}`);
+  });

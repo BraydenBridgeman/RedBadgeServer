@@ -1,9 +1,6 @@
 {
   "name": "red-movie-server",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.11.1"
-  },
   "description": "Red Badge Movie Server",
   "main": "app.js",
   "scripts": {
