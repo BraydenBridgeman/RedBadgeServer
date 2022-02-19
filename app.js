@@ -5,8 +5,6 @@ const app = express();
 
 const dbConnection = require('./db');
 const controllers = require('./controllers');
-const fetch = require('node-fetch');
-globalThis.fetch = fetch
 const cors = require('cors')
 
 let whiteList = ['http://localhost:3000', 'http://localhost:5000', 'https://bwb-redbadgemovie-client.herokuapp.com/']
