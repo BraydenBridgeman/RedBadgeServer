@@ -18,17 +18,11 @@ app.use((req, res, next) => {
 
 app.use(Express.json());
 
-app.use('/publicview', controllers.publicview);
-app.use('/movies', controllers.addMovie);
+app.use('/commentReview', controllers.commentReview);
 app.use('/allMovies', controllers.getMovies);
-app.use('/createlogin', controllers.createLogin);
-app.use('/login', controllers.userLogin);
-app.use('/commentReview', controllers.addCommentReview);
-app.use('/updateCommentReview', controllers.updateCommentReview);
-app.use('/deleteCommentReview', controllers.deleteCommentReview);
-app.use('/userList', controllers.addList);
-app.use('/updateUserList', controllers.updateListName);
-app.use('/deleteUserList', controllers.deleteList);
+app.use('/movieList', controllers.movieList);
+app.use('/publicview', controllers.publicview);
+app.use('/userlogin', controllers.userLogin);
 
 dbConnection.authenticate()
     .then(()=> dbConnection.sync())

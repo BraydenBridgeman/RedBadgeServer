@@ -35,7 +35,7 @@ const User = db.define('user', {
     passReset: {
         type: DataTypes.STRING,
         allowNull: true
-    }
+    },
 });
 
 module.exports = User;

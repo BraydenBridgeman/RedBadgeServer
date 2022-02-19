@@ -26,7 +26,7 @@ const MoviesModel = db.define('movies', {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true,
-    }
+    },
 });
 
 module.exports = MoviesModel;
