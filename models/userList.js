@@ -17,14 +17,6 @@ const UserList = db.define('userList', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    hasWatched: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-    },
-    toWatch: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-    },
     isPublic: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

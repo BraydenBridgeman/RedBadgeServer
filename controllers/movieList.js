@@ -7,13 +7,11 @@ const validateJWT = require('../middleware/validate-jwt');
 // POST User List
 
 router.post("/list", validateJWT, async (req, res) => {
-    const { listName, movieTitle, hasWatched, toWatch } = req.body.userList;
+    const { listName, movieTitle } = req.body.userList;
     const { idNumber } = req.user;
     const addList = {
         listName: listName,
         movieTitle: movieTitle,
-        hasWatched: hasWatched,
-        toWatch: toWatch,
         owner_id: idNumber
     }
     try {
@@ -44,12 +42,10 @@ router.delete("/list/:userList_id", validateJWT, async (req, res) => {
 // PUT (UPDATE) USER LIST NAME
 
 router.put("/list/:userList_id", validateJWT, (req, res) => {
-    const { listName, movieTitle, hasWatched, toWatch } = req.body.userList;
+    const { listName, movieTitle } = req.body.userList;
     UserList.update({
         listName: listName,
-        movieTitle: movieTitle,
-        hasWatched: hasWatched,
-        toWatch: toWatch
+        movieTitle: movieTitle
     }, {
         where: {
             idNumber: req.params.userList_id
