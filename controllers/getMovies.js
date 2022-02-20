@@ -21,7 +21,7 @@ router.get("/getMovies", validateJWT, async (req, res) => {
 
 // POST Movie Information
 
-router.post("/movies", validateJWT, async (req, res) => {
+router.post("/movies", async (req, res) => {
     const { movieName, yearReleased, genre, shortPlot, moviePoster, isPublic } = req.body.movies;
     const addMovie = {
         movieName: movieName,
