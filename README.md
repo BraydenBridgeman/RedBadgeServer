@@ -12,4 +12,9 @@ This repo contains the server side of the application, but you can access the cl
 ## Client Repository
 * [Red Movie Client](https://github.com/BraydenBridgeman/RedBadgeClient)
 ***
-## FAQ
+## ISSUES
+***
+Currently this app is in a very beta state. Currently, you can only create one list, and save one movie at a time.
+Comments and Reviews work, but can only be posted one at a time.
+
+Will look into future builds with using a better API, and also allowing users to create more than one list and/or comment/review.
