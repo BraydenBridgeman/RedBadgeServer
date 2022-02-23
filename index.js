@@ -9,7 +9,6 @@ const dbConnection = require("./db");
 const controllers = require("./controllers");
 app.use(Express.json());
 
-
 app.use("/commentReview", controllers.commentReview);
 app.use("/allMovies", controllers.getMovies);
 app.use("/movieList", controllers.movieList);
